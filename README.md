@@ -1,16 +1,3 @@
----
-  title: Spring 2021, Statistical Data Analysis for Computational Sciences (MAT 555E)
-  author: Atabey Kaygun
-  date: Thursday 11:30-14:30 
-  geometry:
-  - margin=25mm 
-  - top=20mm
-  - bottom=20mm
-  hyperrefoptions:
-  - linktoc=all
-  - pdfwindowui
-...
-
 # Description of the course
 
 This course is designed to provide necessary mathematical and computational background on
