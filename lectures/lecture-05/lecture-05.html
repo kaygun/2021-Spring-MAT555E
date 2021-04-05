@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Atabey Kaygun">
+  <title>Math 555E</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Math 555E</h1>
+  <p class="author">Atabey Kaygun</p>
+  <p class="date">Thursday, April 1, 2021</p>
+</section>
+
+<section>
+<section id="regression-models" class="title-slide slide level1">
+<h1>Regression Models</h1>
+
+</section>
+<section id="the-basic-setup" class="slide level2">
+<h2>The Basic Setup</h2>
+<p>We have <strong>structured</strong> data (column data)</p>
+<div class="fragment">
+<pre><code>        CIC0    SM1Dz   GATS1i  MLOGP   LC50
+    0   3.260   0.829   1.676   1.453   3.770
+    1   2.189   0.580   0.863   1.348   3.115
+    2   2.125   0.638   0.831   1.348   3.531
+    ... ... ... ... ... ... ... 
+    905 3.763   0.916   0.878   2.918   4.818
+    906 2.831   1.393   1.077   0.906   5.317
+    907 4.057   1.032   1.183   4.754   8.201</code></pre>
+</div>
+<ul>
+<li class="fragment">Our purpose is to predict the last column</li>
+<li class="fragment">We form a linear model
+<div class="fragment">
+<p><span class="math display"> LC50 ≈ <em>α</em> + <em>β</em><sub>1</sub> CIC0 + <em>β</em><sub>2</sub>SM1Dz + <em>β</em><sub>3</sub>GATS1i + <em>β</em><sub>4</sub>MLOGP</span></p>
+</div></li>
+</ul>
+</section>
+<section id="the-optimization-model" class="slide level2">
+<h2>The Optimization Model</h2>
+<p>The <strong>best-fitting</strong> linear model <span class="math display">argmin<sub><em>α</em>, <em>β</em></sub>∥<em>L</em><em>C</em>50 − <em>α</em> − <em>β</em> ⋅ <em>X</em>∥</span></p>
+</section>
+<section id="the-questions" class="slide level2">
+<h2>The Questions</h2>
+<ul>
+<li class="fragment">Did the model fit?</li>
+<li class="fragment">How well?</li>
+<li class="fragment">Which variables are (more) important?</li>
+</ul>
+</section>
+<section id="a-common-misconception" class="slide level2">
+<h2>A Common Misconception</h2>
+<p>The size of the coefficient</p>
+<ul>
+<li class="fragment">doesn’t mean importance</li>
+<li class="fragment">the coefficient relates to relative size</li>
+</ul>
+</section>
+<section id="coefficient-of-determinatation-r2" class="slide level2">
+<h2>Coefficient of Determinatation (<span class="math inline"><em>R</em><sup>2</sup></span>)</h2>
+<ul>
+<li class="fragment">Assume we have a linear model
+<div class="fragment">
+<p><span class="math display"><em>Y</em> ≈ <em>β</em> ⋅ <em>X</em></span></p>
+</div></li>
+<li class="fragment">Total variance in the dependent variable
+<div class="fragment">
+<p><span class="math display">$$SS_{tot} = \frac{1}{N}\sum_i(Y_i-\hat{Y})^2$$</span></p>
+</div></li>
+<li class="fragment">Total residual variance
+<div class="fragment">
+<p><span class="math display">$$SS_{res} = \frac{1}{N}\sum_i(Y_i-\beta\cdot X_i)^2$$</span></p>
+</div></li>
+</ul>
+</section>
+<section id="coefficient-of-determinatation-r2-1" class="slide level2">
+<h2>Coefficient of Determinatation (<span class="math inline"><em>R</em><sup>2</sup></span>)</h2>
+<ul>
+<li class="fragment">Total <strong>explained</strong> variance
+<div class="fragment">
+<p><span class="math display">$$\frac{SS_{res}}{SS_{tot}}$$</span></p>
+</div></li>
+<li class="fragment">Total <strong>unexplained</strong> variance
+<div class="fragment">
+<p><span class="math display">$$R^2 = 1-\frac{SS_{res}}{SS_{tot}}$$</span></p>
+</div></li>
+</ul>
+</section>
+<section id="anova-analysis-of-variance" class="slide level2">
+<h2>ANOVA (ANalysis Of VAriance)</h2>
+<ul>
+<li class="fragment">Instead of <strong>total</strong> explained variance do one variable
+<div class="fragment">
+<p><span class="math display">$$1-\frac{SS_{res,i}}{SS_{tot}}$$</span> where</p>
+</div>
+<div class="fragment">
+<p><span class="math display">$$SS_{res,i} = \frac{1}{N}\sum_i (Y_i - \beta_j X_{ij})^2$$</span></p>
+</div></li>
+</ul>
+</section>
+<section id="demo" class="slide level2">
+<h2>DEMO</h2>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

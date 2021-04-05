@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Atabey Kaygun">
+  <title>Math 555E</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/moon.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Math 555E</h1>
+  <p class="author">Atabey Kaygun</p>
+  <p class="date">Thursday, March 11, 2021</p>
+</section>
+
+<section>
+<section id="python" class="title-slide slide level2">
+<h2>Python</h2>
+
+</section>
+<section id="python-is-a-general-purpose-dynamically-typed-garbage-collected-language." class="slide level3">
+<h3>Python is a general purpose dynamically typed garbage collected language.</h3>
+</section>
+<section id="what-is-python-good-for" class="slide level3">
+<h3>What is python good for?</h3>
+</section>
+<section id="it-has-an-extensive-ecosystem-for" class="slide level3">
+<h3>It has an extensive ecosystem for</h3>
+<ul>
+<li class="fragment">Numerical linear algebra</li>
+<li class="fragment">Statistics</li>
+<li class="fragment">Mathematics</li>
+<li class="fragment">Network analysis and graph theory</li>
+<li class="fragment">Machine Learning</li>
+<li class="fragment">Neural networks</li>
+<li class="fragment">Basic exploratory data analysis</li>
+<li class="fragment">Image processing</li>
+<li class="fragment">Data visualization</li>
+</ul>
+</section></section>
+<section>
+<section id="default-frameworks" class="title-slide slide level2">
+<h2>Default Frameworks</h2>
+
+</section>
+<section id="basic-data-processing" class="slide level3">
+<h3>Basic Data Processing</h3>
+<p><a href="https://pandas.pydata.org/">Pandas</a> is the default library for data set loading and rudimentary processing.</p>
+<ul>
+<li class="fragment">slicing, indexing, subsetting</li>
+<li class="fragment">merging and joining</li>
+<li class="fragment">reshaping and pivoting</li>
+<li class="fragment">labeling</li>
+<li class="fragment">IO tools for loading from CSV, Excel, databases, HDF5 files</li>
+</ul>
+</section>
+<section id="numerical-linear-algebra" class="slide level3">
+<h3>Numerical Linear Algebra</h3>
+<p><a href="https://numpy.org/doc/stable/">NumPy</a> is the default library for general purpose numerical linear algebra. Google’s <a href="https://jax.readthedocs.io/en/latest/notebooks/quickstart.html">JAX</a> has parallel computation and automatic differentiation routines.</p>
+<ul>
+<li class="fragment">Vectors and operations on vectors</li>
+<li class="fragment">Reshaping vectors and matrices</li>
+<li class="fragment">Random matrices and vectors</li>
+<li class="fragment">Matrices and operations on matrices
+<ul>
+<li class="fragment">Matrix multiplication, determinants, inverses</li>
+<li class="fragment">Eigen-values and eigen-vectors</li>
+<li class="fragment">QR, LU, Cholesky, SVD, PCA</li>
+</ul></li>
+</ul>
+</section>
+<section id="machine-learning" class="slide level3">
+<h3>Machine Learning</h3>
+<p><a href="https://scikit-learn.org/stable/user_guide.html">SciKit-Learn</a> is the default library for machine learning.</p>
+<ul>
+<li class="fragment">Supervised learning models</li>
+<li class="fragment">Unsupervised learning models</li>
+<li class="fragment">Model evaluation and cross-validation</li>
+<li class="fragment">Dataset transformations</li>
+</ul>
+</section>
+<section id="computational-mathematics" class="slide level3">
+<h3>Computational Mathematics</h3>
+<p><a href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a> is the default library for computational mathematics, science, and engineering.</p>
+<ul>
+<li class="fragment">Integration</li>
+<li class="fragment">Optimization</li>
+<li class="fragment">Linear Algebra</li>
+<li class="fragment">Graph Routines</li>
+<li class="fragment">Statistics</li>
+</ul>
+</section>
+<section id="neural-networks" class="slide level3">
+<h3>Neural Networks</h3>
+<p>There are variety of options for doing Neural Network computations in python.</p>
+<ul>
+<li class="fragment"><a href="https://keras.io/">Keras</a></li>
+<li class="fragment"><a href="https://pytorch.org/">PyTorch</a></li>
+<li class="fragment"><a href="https://www.tensorflow.org/">Tensor Flow</a></li>
+<li class="fragment"><a href="http://www.deeplearning.net/software/theano/">Theano</a></li>
+<li class="fragment"><a href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html">SciKit-Learn</a></li>
+<li class="fragment"><a href="https://mxnet.apache.org/versions/1.7.0/api/python/docs/tutorials/">MXNet</a></li>
+<li class="fragment"><a href="https://spark.apache.org/docs/0.9.2/python-programming-guide.html">Spark-Python</a></li>
+</ul>
+</section>
+<section id="image-processing" class="slide level3">
+<h3>Image Processing</h3>
+<ul>
+<li class="fragment"><p>Most of the frameworks defined earlier <a href="https://numpy.org/doc/stable/">NumPy</a>, <a href="https://scikit-learn.org/stable/user_guide.html">SciKit-Learn</a>, <a href="https://docs.scipy.org/doc/scipy/reference/">SciPy</a> do image processing.</p></li>
+<li class="fragment"><p>The most extensive image processing library used from python is <a href="https://docs.opencv.org/master/">Open-CV</a>.</p>
+<ul>
+<li class="fragment">linear and non-linear image filtering</li>
+<li class="fragment">resize, affine and perspective warping, remapping</li>
+<li class="fragment">color space conversion, histograms</li>
+<li class="fragment">video analysis, background subtraction</li>
+<li class="fragment">object detection</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-visualization" class="slide level3">
+<h3>Data Visualization</h3>
+<p>There are several options for data visualizations:</p>
+<ul>
+<li class="fragment"><a href="https://matplotlib.org/">MatPlotLib</a></li>
+<li class="fragment"><a href="https://seaborn.pydata.org/">SeaBorn</a></li>
+<li class="fragment"><a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">Pandas Visualization</a></li>
+<li class="fragment"><a href="https://github.com/yhat/ggpy">ggplot</a></li>
+<li class="fragment"><a href="https://vega.github.io/vega/">vega</a> and <a href="https://vega.github.io/vega-lite/">vega-lite</a></li>
+</ul>
+</section>
+<section id="mathematics" class="slide level3">
+<h3>Mathematics</h3>
+<p><a href="https://www.sagemath.org/index.html">SAGE</a> is a large framework of mathematics. It can do:</p>
+<ul>
+<li class="fragment">Combinatorics: counting, partitions</li>
+<li class="fragment">Commutative algebra: ideals, Grobner bases</li>
+<li class="fragment">Group theory: finite groups, symmetric groups, generators, relations</li>
+<li class="fragment">Number theory</li>
+<li class="fragment">Lie algebras</li>
+<li class="fragment">Homology: simplicial complexes, complexes, bases</li>
+</ul>
+</section>
+<section id="mathematics-1" class="slide level3">
+<h3>Mathematics</h3>
+<p><a href="https://www.sympy.org/en/index.html">SymPy</a> is the default Python library for symbolic mathematics.</p>
+<ul>
+<li class="fragment">Polynomials</li>
+<li class="fragment">Solving equations</li>
+<li class="fragment">Combinatorics</li>
+<li class="fragment">Discrete math</li>
+<li class="fragment">Geometry</li>
+<li class="fragment">Statistics</li>
+<li class="fragment">Cryptography</li>
+</ul>
+</section>
+<section id="network-analysis-and-graph-theory" class="slide level3">
+<h3>Network Analysis and Graph Theory</h3>
+<p>One can investigate networks and graph data using python.</p>
+<ul>
+<li class="fragment"><a href="https://networkx.org/">NetworkX</a></li>
+<li class="fragment"><a href="https://igraph.org/python/">igraph</a></li>
+<li class="fragment"><a href="https://docs.scipy.org/doc/scipy/reference/tutorial/csgraph.html">SciPy</a></li>
+<li class="fragment"><a href="https://doc.sagemath.org/html/en/reference/graphs/index.html">Sage</a></li>
+</ul>
+</section>
+<section id="natural-language-processing" class="slide level3">
+<h3>Natural Language Processing</h3>
+<p>Python can also do NLP:</p>
+<ul>
+<li class="fragment"><a href="https://www.nltk.org/">NLTK</a></li>
+<li class="fragment"><a href="https://spacy.io/">SpaCy</a></li>
+<li class="fragment"><a href="https://stanfordnlp.github.io/CoreNLP/">CoreNLP</a></li>
+<li class="fragment"><a href="https://github.com/RaRe-Technologies/gensim">Gensim</a></li>
+<li class="fragment"><a href="https://scikit-learn.org/stable/modules/feature_extraction.html?highlight=natural%20language%20processing#text-feature-extraction">SciKit-Learn</a></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

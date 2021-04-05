@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Atabey Kaygun">
+  <title>Math 555E</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/beige.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Math 555E</h1>
+  <p class="author">Atabey Kaygun</p>
+  <p class="date">Thursday, March 25, 2021</p>
+</section>
+
+<section>
+<section id="model-building-via-optimization" class="title-slide slide level1">
+<h1>Model Building via Optimization</h1>
+
+</section>
+<section id="fit-cost-and-penalty" class="slide level2">
+<h2>Fit, Cost and Penalty</h2>
+<ul>
+<li class="fragment">Larger the fit, larger the similarity, smaller the penalty</li>
+<li class="fragment">Larger the cost, smaller the similarity, larger the penalty</li>
+</ul>
+<p><img data-src="image-1.png" /> </p>
+</section>
+<section id="distance-measures" class="slide level2">
+<h2>Distance measures</h2>
+<ul>
+<li class="fragment"><span class="math inline"><em>L</em><sup><em>p</em></sup></span>-distance for points in <span class="math inline">ℝ<sup><em>n</em></sup></span>
+<div class="fragment">
+<p><span class="math display">∑<sub><em>x</em></sub>∥<em>f</em>(<em>x</em>) − <em>g</em>(<em>x</em>)∥<sub><em>p</em></sub></span></p>
+</div></li>
+<li class="fragment">Kullback-Leibler-divergence for distributions
+<div class="fragment">
+<p><span class="math display">∑<sub><em>x</em></sub><em>p</em>(<em>x</em>)log (<em>p</em>(<em>x</em>)/<em>q</em>(<em>x</em>))</span></p>
+</div></li>
+</ul>
+</section>
+<section id="similarity-measures" class="slide level2">
+<h2>Similarity measures</h2>
+<ul>
+<li class="fragment">Cosine similarity
+<div class="fragment">
+<p><span class="math display"><em>S</em><em>i</em><em>m</em>(<em>x</em>, <em>y</em>) = (<em>x</em> ⋅ <em>y</em>)/∥<em>x</em>∥∥<em>y</em>∥</span></p>
+</div></li>
+</ul>
+</section>
+<section id="demo" class="slide level2">
+<h2>Demo</h2>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="supervised-learning" class="title-slide slide level1">
+<h1>Supervised Learning</h1>
+
+</section>
+<section id="data-and-model" class="slide level2">
+<h2>Data and model</h2>
+<ul>
+<li class="fragment">Data set <span class="math inline"><em>D</em></span> consists of <span class="math inline">(<em>x</em>, <em>y</em>)</span>
+<ul>
+<li class="fragment"><span class="math inline"><em>x</em></span> input</li>
+<li class="fragment"><span class="math inline"><em>y</em></span> expected output</li>
+</ul></li>
+<li class="fragment">Model is a function <span class="math inline"><em>f</em>(<em>x</em>, <em>θ</em>)</span>
+<div class="fragment">
+<p><span class="math display"><em>C</em><em>o</em><em>s</em><em>t</em>(<em>θ</em>) = ∑<sub><em>x</em></sub><em>d</em><em>i</em><em>s</em><em>t</em>(<em>f</em>(<em>x</em>, <em>θ</em>), <em>y</em>)</span></p>
+</div></li>
+<li class="fragment">Best model is one where Cost is minimized.</li>
+</ul>
+</section>
+<section id="optimization" class="slide level2">
+<h2>Optimization</h2>
+<p>Gradient descent</p>
+<ul>
+<li class="fragment"><span class="math inline"><em>F</em>: ℝ<sup><em>m</em></sup> → ℝ</span>
+<ul>
+<li class="fragment">We want <span class="math inline"><em>a</em><em>r</em><em>g</em><em>m</em><em>i</em><em>n</em><sub><em>θ</em></sub><em>F</em>(<em>θ</em>)</span></li>
+<li class="fragment">We find it iteratively
+<div class="fragment">
+<p><span class="math display"><em>θ</em><sub><em>n</em> + 1</sub> = <em>θ</em><sub><em>n</em></sub> + <em>γ</em>∇<em>F</em>(<em>θ</em><sub><em>n</em></sub>)</span></p>
+</div></li>
+</ul></li>
+<li class="fragment">Optimal <span class="math inline"><em>θ</em></span> gives best fitting model.</li>
+</ul>
+</section>
+<section id="regularization" class="slide level2">
+<h2>Regularization</h2>
+<ul>
+<li class="fragment">In <em>Regularization</em> add a penalty term into the Cost function
+<div class="fragment">
+<p><span class="math display"><em>C</em><em>o</em><em>s</em><em>t</em>(<em>θ</em>) = <em>Ψ</em>(<em>θ</em>) + ∑<sub><em>x</em></sub><em>d</em><em>i</em><em>s</em><em>t</em>(<em>f</em>(<em>x</em>, <em>θ</em>), <em>y</em>)</span></p>
+</div></li>
+<li class="fragment">Occam’s Razor = Optimal <span class="math inline"><em>θ</em></span> with minimal penalty</li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>Example</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="regression">Regression</h3>
+<ul>
+<li class="fragment">Data: <span class="math inline"><em>X</em>, <em>y</em> = (<em>x</em><sub>1</sub><sup>(<em>i</em>)</sup>, …, <em>x</em><sub><em>n</em></sub><sup>(<em>i</em>)</sup>; <em>y</em><sup>(<em>i</em>)</sup>)</span></li>
+<li class="fragment">Cost: <span class="math inline">∥<em>y</em> − <em>β</em><em>X</em>∥</span></li>
+<li class="fragment"><span class="math inline">ℓ<sub><em>p</em></sub></span>-regularization: <span class="math inline">∥<em>y</em> − <em>β</em><em>X</em>∥ + <em>λ</em>∥<em>β</em>∥<sub><em>p</em></sub></span>
+<ul>
+<li class="fragment"><span class="math inline"><em>p</em> = 1</span>: Lasso</li>
+<li class="fragment"><span class="math inline"><em>p</em> = 2</span>: Ridge</li>
+<li class="fragment"><span class="math inline"><em>p</em> = 1</span> and <span class="math inline"><em>p</em> = 2</span>: Elastic Net</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="demo-1">Demo</h3>
+</section>
+<section class="slide level2">
+
+<h3 id="k-means">K-means</h3>
+<ul>
+<li class="fragment">Data: <span class="math inline"><em>X</em> = (<em>x</em><sub>1</sub><sup>(<em>i</em>)</sup>, …, <em>x</em><sub><em>m</em></sub><sup>(<em>i</em>)</sup>) ⊆ ℝ<sup><em>m</em></sup></span></li>
+<li class="fragment"><span class="math inline"><em>p</em>: <em>X</em> → {<em>y</em><sub>1</sub>, …, <em>y</em><sub><em>k</em></sub>} ⊆ ℝ<sup><em>m</em></sup></span>
+<div class="fragment">
+<p><span class="math display"><em>a</em><em>r</em><em>g</em><em>m</em><em>i</em><em>n</em><sub><em>p</em></sub>∑<sub><em>x</em></sub>∥<em>x</em> − <em>p</em>(<em>x</em>)∥</span></p>
+</div></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="demo-2">Demo</h3>
+</section>
+<section class="slide level2">
+
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
