@@ -89,7 +89,7 @@ Any fool can develop a model! (coding)
 ![](200w.gif)
 
 * Deciding whether a model fits is difficult. (domain knowledge)
-* Understanding when/where model stops working is difficult. (statistics)
+* Understanding when/where model stops working is difficult. (math/stats)
 * Fixing a model when it breaks is difficult. (math)
 
 ### What is a model?
